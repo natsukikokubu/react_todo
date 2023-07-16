@@ -1,11 +1,22 @@
-import React from "react";
-import { Todo } from "./components/Todo";
+import React, { useState } from "react";
 
+// ppをcreateTodoという名前で定義,引数はvalueと更新するためのsetValue
 const App = () => {
+  //Inputに入力された値のStateを管理
+  const [value, setValue] = useState("");
+  console.log(value);
+  // App関数にデータを渡すためのreturn
+  // 複数あるから（）でくくっている,<div>は必要？
   return (
     <div>
-      <Todo />
+      <input
+        type="text"
+        placeholder="入力してね"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
     </div>
   );
 };
+
 export default App;
